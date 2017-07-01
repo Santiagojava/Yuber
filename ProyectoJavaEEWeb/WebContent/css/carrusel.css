@@ -1,0 +1,11 @@
+.jumbotron4 .carrusel {
+    margin-left: 120px;
+    width: 70%;
+}
+
+.jumbotron4 .carrusel img{
+    image-resolution: 300dpi; 
+    width: 1000px;
+    height: 300px;
+    background: white;
+}

@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Indie+Flower|Josefin+Sans|Lobster|Orbitron|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Finger+Paint|Frijole|Love+Ya+Like+A+Sister|Sue+Ellen+Francisco|The+Girl+Next+Door');
+
+header{
+    font-family: 'Pacifico', cursive;
+}
+
+
+
+body {
+  background: url("img/banner.png") repeat;
+}
+
+#banner {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.welcome{
+    text-align: center;
+}
+
+.welcome h1{
+    float: inherit;
+    text-align: center;
+    font-family: 'Century Gothic';
+}
+
+.welcome h3{
+    float: inherit;
+    text-align: center;
+    font-family: 'Century Gothic';
+}
+
+.welcome a{
+	font-size: 30px;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    text-decoration: none;
+    cursor:	pointer;
+}
+
+.login{
+    position: fixed;
+    text-align: center;
+    margin-top: 3%;
+}
+
+.login input{
+	border-style: solid;
+	border-width: 1px;
+	border-color: gray;
+}
+
+img.logo{
+    width: 30%;
+    height: 30%;
+}

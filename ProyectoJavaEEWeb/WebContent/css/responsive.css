@@ -1,0 +1,40 @@
+@media (min-width:1024px){
+    .jumbotron4 select{
+        margin-left: 500px;       
+    }
+}
+
+@media (min-width:1024px){
+    .jumbotron4 button{
+        margin-left: 380px;       
+    }
+}
+
+
+@media screen and (max-width: 768px){
+    .jumbotron4 select{
+        margin-left: 20px;       
+    }
+
+    .jumbotron4 button{
+        padding-left: auto;
+        margin-left: 20px;       
+    }
+    
+    .post button{
+        width: 100%;
+        height: 100%;
+    }
+
+    .jumbotron4 .carrusel {
+        margin-left: 50px;
+        width: 70%;
+    }
+
+    .jumbotron4 .carrusel img{
+        image-resolution: 300dpi; 
+        width: 3000px;
+        height: 100px;
+        background: white;
+    }
+}
