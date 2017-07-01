@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Historial")
 public class Historial implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="id")

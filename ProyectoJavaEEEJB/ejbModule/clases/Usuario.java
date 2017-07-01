@@ -3,10 +3,14 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
+import sessionbeans.ManagerUsuarioSessionBean;
+import sessionbeans.ManagerUsuarioSessionBeanLocal;
+
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @Table(name = "Usuario")
 public class Usuario implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="nombre")
 	private String nombre;
@@ -14,6 +18,8 @@ public class Usuario implements Serializable{
 	private String email;
 	@Column(name="password")
 	private String password;
+	@Column(name="ip")
+	private String ip;
 	public String getNombre() {
 		return nombre;
 	}
@@ -35,11 +41,18 @@ public class Usuario implements Serializable{
 	public Usuario() {
 		super();
 	}
-	public Usuario(String nombre, String email, String password) {
+	public Usuario(String nombre, String email, String password, String ip) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
+		this.ip=ip;
+	}
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
 	}
 	
 }
