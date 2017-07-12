@@ -3,9 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-2.0.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<title>Yuber - compartiendo servicios</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
@@ -25,7 +22,7 @@
 		<img class="logo" src="img/logoBlk.png">
 		<div class="row">
   			<div class="col-lg-2 col-lg-offset-5">
-  			<form action="Review" method="GET">
+  			<form action="Login" method="post">
 				<input type="text" class="form-control input-sm" placeholder="usuario" name="usu" id="usu">
 				<br>
 				<input type="password" class="form-control input-sm" placeholder="contraseña" name="psswd" id="psswd">

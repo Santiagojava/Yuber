@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import clases.Solicitud;
 import clases.Usuario;
+import sessionbeans.ManagerSolicitudSessionBean;
 import sessionbeans.ManagerSolicitudSessionBeanLocal;
 import sessionbeans.ManagerUsuarioSessionBeanLocal;
 
@@ -26,20 +27,24 @@ public class WebThread extends Thread{
 	DataOutputStream salida;
 	String prov;
 	int puerto;
-	HttpSession session;
 	List<Solicitud>so;
-	public WebThread(String prov,HttpSession session){
+	ManagerSolicitudSessionBeanLocal mssb;
+	public WebThread(String prov){
 		super();
 		puerto=1025;
 		this.prov=prov;
-		this.session=session;
 		so=new ArrayList();
+	}
+	public List<Solicitud> getSolicitudes(){
+		return so;
 	}
 	@Override
     public void run(){
 		try {
 			ss= new ServerSocket(puerto);
+			mssb = (ManagerSolicitudSessionBeanLocal) new InitialContext().lookup("ManagerSolicitudSessionBean/local");
 			while(true){
+				//java:/PostgresDS/
 				s= ss.accept();
 				entradaSocket = new InputStreamReader(s.getInputStream());
 				entrada = new BufferedReader(entradaSocket);
@@ -50,8 +55,8 @@ public class WebThread extends Thread{
 				solicitud.setDestino(partes[1]);
 				solicitud.setNom_prov(prov);
 				solicitud.setNombre_cli(partes[0]);
-				so.add(solicitud);
-				session.setAttribute("solicitudes",so);
+				//so.add(solicitud);
+				mssb.addSolicitud(solicitud);
 				entrada.close();
 				entrada=null;
 				salida.close();

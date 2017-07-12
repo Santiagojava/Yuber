@@ -48,6 +48,12 @@ public class ManagerUsuarioSessionBean implements ManagerUsuarioSessionBeanLocal
         return usu;
     }
     @Override
+    public List<Usuario> getUsuarios(){
+    	Query q = entityManager.createQuery("SELECT u FROM Usuario u");
+        List<Usuario> lista1=q.getResultList();
+        return lista1;
+    }
+    @Override
     public void cambiarEstado(String nombre,EstadoProveedor estado){
     	Proveedor prov=(Proveedor)entityManager.find(Usuario.class,nombre);
         prov.setEstado(estado);

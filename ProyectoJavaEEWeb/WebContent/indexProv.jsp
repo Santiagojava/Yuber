@@ -9,6 +9,69 @@
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/main.js"></script>
         <script src="js/bootstrap.min.js"></script> 
+        <!--<script type="text/javascript">
+		    $(document).ready(function() {
+		    	$('#actualizar').click(function() {
+	                //var name = $('#userName').val();
+	                $.axaj({
+						type:'POST',
+						url:'IngresoProveedor',
+						success: function(result){
+							$('#cantidad').html(result);
+						}
+	                });
+	        	});
+		    });
+	    </script>-->
+	    <script>
+		    $(document).on("click", "#actualizar", function() {        // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+		        $.get("IngresoProveedor", function(responseJson) {          // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response JSON...
+		            var $table = $("<table>").appendTo($("#cantidad")); // Create HTML <table> element and append it to HTML DOM element with ID "somediv".
+		            $.each(responseJson, function(index, solicitud) {    // Iterate over the JSON array.
+		                //$("<form method='post'>").appendTo($table)
+		                    //.append($("<h2>").text(solicitud.id))        
+		                    //.append($("<h2>").text(solicitud.destino))   
+		                    //.append($("<h3>").text(solicitud.nombre_cli))
+		                    //.append($("<input type='submit' value='Aceptar'>"));
+		                	//document.getElementById('').value='new value';
+		                
+		                $('<form>').attr({
+		                    id: 'form1',
+		                    name: 'form1',
+		                    method:'post',
+		                    action: 'VerSolicitud'
+		                }).appendTo($table);
+
+		                $('<h3>').attr({
+		                    id: solicitud.id
+		                }).appendTo('#form1');
+		                
+		                $('<input>').attr({
+		                    type: 'hidden',
+		                    id: 'foo',
+		                    value : solicitud.nombre_cli,
+		                    name: 'nombre_cli'
+		                }).appendTo('#form1');
+
+		                $('<input>').attr({
+		                    type: 'hidden',
+		                    id: 'foo',
+		                    value : solicitud.destino,
+		                    name: 'ubicacion'
+		                }).appendTo('#form1');
+
+		                $('<input>').attr({
+		                    type: 'submit',
+		                    value : 'Aceptar'
+		                }).appendTo('#form1');
+
+		                $('<br>').appendTo('#form1');
+		                $('<br>').appendTo('#form1');
+		                document.getElementById(solicitud.id).innerHTML = solicitud.nombre_cli;
+		            });
+		        });
+		    });
+	    </script>
     </head>
     <body>
         <header>
@@ -42,9 +105,14 @@
     </header>
     <div class="jumbotron" align="center">
         <img class="logo" src="img/logoBlk.png" href="index.html" width="100%">
+       	<button class="btn btn-primary" id="actualizar">Actualizar Bandeja</button>
+       	<br><br>
+      		<div id="cantidad"></div>
+        <!-- 
         <div class="pedido">
             <a href="pedido.html">0 pedidos nuevos</a>
         </div>
+        -->
     </div>
     <footer>
         <div class="contenedorPie">

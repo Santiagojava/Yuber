@@ -11,8 +11,8 @@ public class Cliente extends Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	public Cliente(){
 	}
-	public Cliente(String nombre, String email, String password,String ip){
-		super(nombre,email,password,ip);
+	public Cliente(String nombre, String email, String password,String ip,String ubicacion){
+		super(nombre,email,password,ip,ubicacion);
 	}
 	
 }

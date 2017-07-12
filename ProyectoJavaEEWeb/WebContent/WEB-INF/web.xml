@@ -2,17 +2,8 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>ProyectoJavaEEWeb</display-name>
   <welcome-file-list>
-    <welcome-file>index2.jsp</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>Faces Servlet</servlet-name>
-    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
-  </servlet-mapping>
   <servlet>
     <servlet-name>IngresoProveedor</servlet-name>
     <servlet-class>servlets.IngresoProveedor</servlet-class>
@@ -25,6 +16,38 @@
     <servlet-name>Login</servlet-name>
     <servlet-class>servlets.Login</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>VerSolicitud</servlet-name>
+    <servlet-class>servlets.VerSolicitud</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AceptaProveedor</servlet-name>
+    <servlet-class>servlets.AceptaProveedor</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>InicioServicio</servlet-name>
+    <servlet-class>servlets.InicioServicio</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FinalizarServicio</servlet-name>
+    <servlet-class>servlets.FinalizarServicio</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FinalizarServicio</servlet-name>
+    <url-pattern>/FinalizarServicio</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InicioServicio</servlet-name>
+    <url-pattern>/InicioServicio</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AceptaProveedor</servlet-name>
+    <url-pattern>/AceptaProveedor</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VerSolicitud</servlet-name>
+    <url-pattern>/VerSolicitud</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>

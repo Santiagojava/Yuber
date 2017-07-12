@@ -13,17 +13,32 @@ public class SubVertical implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id 
     //@GeneratedValue(strategy = GenerationType.AUTO)
-	private String tipo;
+	@Column(name="categoria")
+	private String categoria;
+	@Column(name="tarifa")
+	private float tarifa;
+	@Column(name="vertical")
+	private TipoServicio vertical;
+	
 	public SubVertical() {
 		super();
 	}
-	public SubVertical(String tipo){
-		this.tipo=tipo;
+	public SubVertical(String categoria,float tarifa,TipoServicio vertical){
+		this.categoria=categoria;
+		this.tarifa=tarifa;
+		this.vertical=vertical;
 	}
 	public String getTipo() {
-		return tipo;
+		return categoria;
 	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setTipo(String categoria) {
+		this.categoria = categoria;
 	}
+	public float getTarifa() {
+		return tarifa;
+	}
+	public void setTarifa(float tarifa) {
+		this.tarifa = tarifa;
+	}
+	
 }

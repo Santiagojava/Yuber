@@ -20,6 +20,24 @@ public class Usuario implements Serializable{
 	private String password;
 	@Column(name="ip")
 	private String ip;
+	@Column(name="ubicacion")
+	private String ubicacion;
+	@Column(name="vertical")
+	TipoServicio vertical;
+	
+	
+	public TipoServicio getVertical() {
+		return vertical;
+	}
+	public void setVertical(TipoServicio vertical) {
+		this.vertical = vertical;
+	}
+	public String getUbicacion() {
+		return ubicacion;
+	}
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
 	public String getNombre() {
 		return nombre;
 	}
@@ -41,12 +59,13 @@ public class Usuario implements Serializable{
 	public Usuario() {
 		super();
 	}
-	public Usuario(String nombre, String email, String password, String ip) {
+	public Usuario(String nombre, String email, String password, String ip, String ubicacion) {
 		super();
 		this.nombre = nombre;
 		this.email = email;
 		this.password = password;
 		this.ip=ip;
+		this.ubicacion=ubicacion;
 	}
 	public String getIp() {
 		return ip;

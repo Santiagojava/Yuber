@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="css/map.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/estilo.css">
-        <title> YUBER - pedido</title>
+        <title> YUBER - Buscar Cliente</title>
         <script src="http://maps.googleapis.com/maps/api/js"> </script>    
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/main.js"></script>
@@ -64,52 +64,36 @@
 });
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaWWetuqWf6A1CBWxb145XNliMshSL_gY&callback=initMap">
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaWWetuqWf6A1CBWxb145XNliMshSL_gY&callback=initMap">
     </script>
+    <script>
+		$(document).on("click", "#actualizar", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+	        $.get("InicioServicio", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+       			$("#mensaje").text(responseText);
+	        });
+	    });
+	</script>
+	<script>
+		$(document).on("mouseenter", "#mensaje", function() { // When HTML DOM "click" event is invoked on element with ID "somebutton", execute the following function...
+	        $.get("FinalizarServicio", function(responseText) {   // Execute Ajax GET request on URL of "someservlet" and execute the following function with Ajax response text...
+	        	if(responseText == "indexProv.jsp"){
+	    			window.location.replace("indexProv.jsp");
+	    		}
+	    		else{
+	    			$("#mensaje").text(responseText);
+	    		}
+	        });
+	    });
+	</script>
     </head>
-    <body>
-        <header>
-            <nav class="navbar navbar-default navbar-static-top menus" role="navigation">
-                <div class="container-fluid">
-                    <div class="container">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegacion-Lm">
-                                <span class="sr-only"> Desplegar / Ocultar menu</span>
-                                <samp class="icon-bar"></samp>
-                                <samp class="icon-bar"></samp>
-                                <samp class="icon-bar"></samp>
-                            </button>
-                            <a href="indexProv.jsp" class="navbar-brand">Yuber</a>
-                        </div>
-                        <! -- Inicia Menu -->
-                        <div class="collapse navbar-collapse" id="navegacion-Lm">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.jsp">Historial</a></li>
-                        </ul>
-                        <form action="Buscador" class="navbar-form navbar-right" role="search">
-                            <div class="form-group">
-                                <input name="palabra" type="text" class="form-control" placeholder="Buscar">
-                            </div>
-                            <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search"></span></button></a>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="jumbotron" align="center">
-            <h4>PEDIDO</h4>
-            <form method="post" action="AceptaProveedor">
-            	<input type="hidden" name="nombre_cli" value="<%=nombre_cli%>">
-            	<input type="hidden" name="longitud" value="<%=longitud%>">
-            	<input type="hidden" name="latitud" value="<%=latitud%>">
-            	<input type="submit" class="btn btn-danger" value="Aceptar">
-            </form>	
-            <a href="indexProv.jsp" class="btn btn-default">Cancelar</a>
-            <h5><%=nombre_cli%></h5>
-            <div id="map" class="map"></div>
-    </div>
-    <footer>
+<body>
+	<div class="jumbotron" align="center">
+		<div id="map" class="map"></div>
+	    <h1 id="mensaje">De click al boton Iniciar Servicio cuando se encuentre con el cliente</h1>
+        <button id="actualizar" class="btn btn-danger">Iniciar Servicio</button>
+	</div>
+	<!--  <div id="mensaje"></div>-->
+	<footer>
         <div class="contenedorPie">
             <p class="copy"> YUBER! &copy; 2017</p>
             <div class="sociales">

@@ -24,6 +24,23 @@ public class Proveedor extends Usuario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Column(name="estado")
 	private EstadoProveedor estado;
+	@Column(name="tarifa")
+	private int tarifa;
+	@Column(name="categoria")
+	private String categoria;
+	
+	public int getTarifa() {
+		return tarifa;
+	}
+	public void setTarifa(int tarifa) {
+		this.tarifa = tarifa;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
 	@Column(name="servicio")
 	@ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="Prov_Ser",
@@ -40,9 +57,11 @@ public class Proveedor extends Usuario implements Serializable{
 	
 	public Proveedor(){
 	}
-	public Proveedor(String nombre, String email, String password,String ip, EstadoProveedor estado){
-		super(nombre,email,password,ip);
+	public Proveedor(String nombre, String email, String password,String ip,String ubicacion,EstadoProveedor estado,int tarifa,String categoria){
+		super(nombre,email,password,ip,ubicacion);
 		this.estado=estado;
+		this.categoria=categoria;
+		this.tarifa=tarifa;
 	}
 	public List<Servicio> getServicios() {
 		return servicios;

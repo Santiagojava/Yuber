@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="clases.Usuario"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+	List<String> usuarios = (List<String>)request.getSession().getAttribute("usuarios");
+%>
 <html>
     <head>
         <link rel="stylesheet" href="css/map.css">
@@ -8,7 +14,6 @@
         <link rel="stylesheet" href="css/estilo.css">
         <title> YUBER - transporte</title>
         <script src="http://maps.googleapis.com/maps/api/js"> </script>    
-        <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="js/main.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
@@ -92,20 +97,28 @@
             <ul class="nav nav-tabs nav-justified">
                 <li role="presentation" class="active"><a href="Transporte.jsp">TRANSPORTE</a></li>
                 <li role="presentation"><a href="on-site.jsp">ON-SITE</a></li>
-                <li role="presentation" ><a href="remoto.jsp">REMOTO</a></li>
             </ul>
             <br>
             <div class="info">
                 
-<button type="submit" class="btn btn-danger navbar-right" id="solicitar"><span class="glyphicon glyphicon-thumbs-up"></span>Solicitar</button>
+
                 <h3><span class="glyphicon glyphicon-map-marker"></span> Ingresar Ubicacion </h3>
                 <br>
                 <div id="map" class="map"></div>
                <br>
                <br>
-                <a href="#">Latitud:</a><input id="A-coordsX" type="text" disabled class="form-control input-sm" placeholder="Latitud">
-                <a href="#">Longitud:</a><input id="A-coordsY" type="text" disabled class="form-control input-sm" placeholder="Longitud">
-               
+               <form action="IngresoCliente" method="post">
+               	<select class="selectpicker" name="categoria">
+			      <%for(int i=0;i<usuarios.size();i++) {%>
+			        	<option value="<%=usuarios.get(i)%>"><%=usuarios.get(i)%></option>
+		          <%}%>
+			    </select>
+                <!-- <a href="#">Latitud:</a><input id="A-coordsX" name="latitud" type="text" disabled class="form-control input-sm" placeholder="Latitud">-->
+                <!-- <a href="#">Longitud:</a><input id="A-coordsY" name="longitud" type="text" disabled class="form-control input-sm" placeholder="Longitud">-->
+                <!-- <a href="#">Latitud:</a>--><input id="A-coordsX" name="latitud" type="text" placeholder="Latitud">
+                <!-- <a href="#">Longitud:</a>--><input id="A-coordsY" name="longitud" type="text" placeholder="Longitud">
+               	<input type="submit" class="btn btn-danger navbar-right" id="solicitar" value="Solicitar"><!--<span class="glyphicon glyphicon-thumbs-up"></span>-->
+               </form>
             </div>
         </div>
         <footer>
